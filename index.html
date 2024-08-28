@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Copier with Day-Night Toggle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            background-color: #ffffff; /* Day theme background */
+            color: #000000; /* Day theme text color */
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .input-box {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            background-color: #f0f0f0; /* Slightly grey background */
+            border: 1px solid #ccc; /* Light grey border */
+        }
+
+        .copy-button {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+
+        .copy-button:hover {
+            transform: scale(1.1);
+        }
+
+        .copy-button:active {
+            transform: scale(0.9);
+        }
+
+        /* Day-Night Toggle Button */
+        .toggle-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: transform 0.1s ease, background-color 0.3s ease;
+            background-color: #ffffff; /* Default button color */
+            border-radius: 50%; /* Rounded button */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toggle-button:hover {
+            transform: scale(1.1);
+        }
+
+        .toggle-button:active {
+            transform: scale(0.9);
+        }
+        #themeIcon {
+    width: 50px;
+    height: 50px;
+}
+    </style>
+</head>
+<body>
+    <h1>rivals copypastas 🔫</h1>
+    <div class="input-container">
+        <input type="text" id="inputBox1" class="input-box" value="🚗🚗  Beep Beep!  0 Winstreak Delivery Incoming! 🚗🚗" readonly>
+        <img src="copy-icon.png" class="copy-button" onclick="copyText('inputBox1')" alt="Copy">
+    </div>
+
+    <div class="input-container">
+        <input type="text" id="inputBox2" class="input-box" value="🚊🚊 Choo Choo! Your Train To the Lobby Is Ready! 🚊🚊" readonly>
+        <img src="copy-icon.png" class="copy-button" onclick="copyText('inputBox2')" alt="Copy">
+    </div>
+
+    <div class="input-container">
+        <input type="text" id="inputBox3" class="input-box" value="🏍️🏍️  Vroom Vroom! Your Winstreak Is About To Get Driven On! 🏍️🏍️" readonly>
+        <img src="copy-icon.png" class="copy-button" onclick="copyText('inputBox3')" alt="Copy">
+    </div>
+
+    <div class="input-container">
+        <input type="text" id="inputBox4" class="input-box" value="🛻 🚛 Honk Honk! Your Winrate Is About To Get Decimated By A 700-Pound Semitruck! 🛻 🚛 🩷" readonly>
+        <img src="copy-icon.png" class="copy-button" onclick="copyText('inputBox4')" alt="Copy">
+    </div>
+    <p>contact me on discord @pyxistix if you have ideas</p>
+
+    <!-- Day-Night Toggle Button -->
+    <div class="toggle-button" onclick="toggleTheme()">
+        <img src="sun.png" id="themeIcon" alt="Toggle">
+    </div>
+
+    <script>
+        function copyText(inputId) {
+            // Get the text field
+            var copyText = document.getElementById(inputId);
+
+            // Select the text field
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(copyText.value).then(() => {
+            });
+        }
+
+        function toggleTheme() {
+            var body = document.body;
+            var themeIcon = document.getElementById("themeIcon");
+
+            if (body.style.backgroundColor === '#262626') {
+                // Switch to day theme
+                body.style.backgroundColor = '#ffffff'; // Day theme background
+                body.style.color = '#000000'; // Day theme text color
+                themeIcon.src = 'sun.png'; // Change icon to sun
+            } else {
+                // Switch to night theme
+                body.style.backgroundColor = '#262626'; // Night theme background
+                body.style.color = 'white'; // Night theme text color
+                themeIcon.src = 'moon.png'; // Change icon to moon
+            }
+        }
+    </script>
+</body>
+</html>
